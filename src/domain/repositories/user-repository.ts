@@ -1,8 +1,9 @@
-import { UserEntityProps } from '../entities/user'
+import { UserEntity } from '../entities/user'
 
 export abstract class UserRepository {
-  abstract findById(id: string): Promise<UserEntityProps | null>
-  abstract findByEmail(email: string): Promise<UserEntityProps | null>
-  abstract save(user: UserEntityProps): Promise<void>
+  abstract findById(id: string): Promise<UserEntity | null>
+  abstract findByEmail(email: string): Promise<UserEntity | null>
+  abstract create(user: UserEntity): Promise<void>
+  abstract save(user: Partial<UserEntity>): Promise<void>
   abstract delete(id: string): Promise<void>
 }
