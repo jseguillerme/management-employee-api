@@ -1,4 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const config = require('./jest.config')
-config.testMatch = ['**/*.spec.ts']
-module.exports = config
+const configUnit = require('./jest.config')
+configUnit.testMatch = ['**/*.spec.ts']
+module.exports = configUnit
