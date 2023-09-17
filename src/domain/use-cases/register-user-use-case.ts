@@ -1,7 +1,7 @@
-import { ConflictException } from '@nestjs/common'
 import { UserRepository } from '../repositories/user-repository'
 import { UserEntity } from '../entities/user'
 import { hash } from 'bcryptjs'
+import { ResourceAlreadyExistsError } from './errors/ResourceAlreadyExistsError'
 
 export interface RegisterUserUseCaseRequest {
   name: string
@@ -28,7 +28,7 @@ export class RegisterUserUseCase {
 
     const userAlreadyExists = await this.userRepository.findByEmail(email)
 
-    if (userAlreadyExists) throw new ConflictException('User already exists')
+    if (userAlreadyExists) throw new ResourceAlreadyExistsError('email')
 
     const user = UserEntity.create({
       name,

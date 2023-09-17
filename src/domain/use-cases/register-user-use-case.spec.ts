@@ -1,6 +1,7 @@
 import { InMemoryUserRepository } from '@/test/in-memory/in-memory-user-repository'
 import { RegisterUserUseCase } from './register-user-use-case'
 import { makeUser } from '@/test/factories/make-user'
+import { ResourceAlreadyExistsError } from './errors/ResourceAlreadyExistsError'
 
 let inMemoryUserRepository: InMemoryUserRepository
 let sut: RegisterUserUseCase
@@ -38,6 +39,6 @@ describe('Register User Use Case', () => {
         password: '123456',
         role: 'admin',
       }),
-    ).rejects.toBeInstanceOf(Error)
+    ).rejects.toBeInstanceOf(ResourceAlreadyExistsError)
   })
 })
