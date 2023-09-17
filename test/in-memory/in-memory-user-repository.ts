@@ -24,10 +24,10 @@ export class InMemoryUserRepository implements UserRepository {
     this.users.push(user)
   }
 
-  async save(user: Partial<UserEntity>): Promise<void> {
+  async save(user: UserEntity): Promise<void> {
     const userIndex = this.users.findIndex((item) => item.id === user.id)
 
-    this.users[userIndex] = user as UserEntity
+    this.users[userIndex] = user
   }
 
   async delete(id: string): Promise<void> {
