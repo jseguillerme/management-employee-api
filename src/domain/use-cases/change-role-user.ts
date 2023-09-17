@@ -20,8 +20,6 @@ export class ChangeRoleUserUseCase {
 
     userExists.role = userRole
 
-    await this.userRepository.save({
-      ...userExists,
-    })
+    await this.userRepository.save(userExists)
   }
 }
