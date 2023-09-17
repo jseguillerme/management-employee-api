@@ -13,7 +13,7 @@ export class User {
   password: string
 
   @Prop({ required: true, enum: ['admin', 'member'] })
-  role: string
+  role: 'admin' | 'member'
 
   @Prop({ required: true, default: Date.now })
   created_at: Date
