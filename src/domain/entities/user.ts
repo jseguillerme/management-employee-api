@@ -82,12 +82,11 @@ export class UserEntity {
   }
 
   static create(
-    props: Optional<UserEntityProps, 'createdAt'>,
-    id?: string,
+    props: Optional<UserEntityProps, 'createdAt' | '_id'>,
   ): UserEntity {
     return new UserEntity({
       ...props,
-      _id: id ?? randomUUID(),
+      _id: props._id ?? randomUUID(),
       createdAt: props.createdAt ?? new Date(),
     })
   }

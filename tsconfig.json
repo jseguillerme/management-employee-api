@@ -8,11 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2022",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "src",
     "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
@@ -20,6 +17,12 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@/tests/*": ["../test/*"],
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src", "test", "jest**"],
+  "exclude": []
 }
