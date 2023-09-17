@@ -12,7 +12,11 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest --runInBand --passWithNoTests",
+    "test:unit": "npm run test -- --watch -c jest-unit.config.ts",
+    "test:int": "npm run test -- --watch -c jest-integration.config.ts",
+    "test:cov": "npm run test -- --coverage"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
