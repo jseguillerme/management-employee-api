@@ -9,7 +9,7 @@ export interface AuthenticateUseCaseRequest {
 }
 
 export interface AuthenticateUseCaseResponse {
-  access_token: string
+  accessToken: string
 }
 
 export class AuthenticateUseCase {
@@ -25,10 +25,10 @@ export class AuthenticateUseCase {
 
     const passwordMatch = await compare(password, user.password)
 
-    if (!passwordMatch) throw new ResourceWithConflictError('Passoword')
+    if (!passwordMatch) throw new ResourceWithConflictError('Password')
 
     return {
-      access_token: 'token',
+      accessToken: 'token',
     }
   }
 }
